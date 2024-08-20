@@ -1,0 +1,1 @@
+a test feed forwarward neuralnetwork to recognize hand digits in julia
