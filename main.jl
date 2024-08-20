@@ -1,9 +1,3 @@
-using Pkg
-Pkg.add("Flux")
-Pkg.add("MLDatasets")
-Pkg.add("Images")
-Pkg.add("Plots")
-
 using Flux, Images,  MLDatasets, Plots
 using Flux: crossentropy, onecold, onehotbatch, train!, params
 using LinearAlgebra, Random, Statistics
@@ -43,10 +37,12 @@ for epoch in 1:epochs
 end
 
 #prdictions
+
 y_hat_raw = model(x_test)
 y_hat = onecold(y_hat_raw) .- 1
 y = y_test_raw
 mean(y_hat .== y)
+
 check = [y_hat[i] == y[i] for i in eachindex(y)]
 index = collect(1:length(y))
 check_display = [index y_hat y check]
